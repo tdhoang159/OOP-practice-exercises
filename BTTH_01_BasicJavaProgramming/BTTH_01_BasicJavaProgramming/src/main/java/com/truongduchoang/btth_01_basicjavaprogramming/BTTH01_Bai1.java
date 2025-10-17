@@ -12,7 +12,7 @@ Viết chương trình sinh ngẫu nhiên một số nguyên dương trong kho�
 100, cho phép người dùng nhập vào số dự đoán số ngẫu nhiêu vừa được sinh ra, nếu số
 nhập vào lớn hơn hay nhỏ hơn thì hiện câu thông báo tương ứng “Số bạn đoán lớn hơn”,
 “Số bạn đoán nhỏ hơn”, quá trình này lặp lại cho đến khi người dùng đoán đúng số vừa
-đã phát sinh ngẫu nhiên ra thì hiện thông báo “Bạn đã đoán đún”.
+đã phát sinh ngẫu nhiên ra thì hiện thông báo “Bạn đã đoán đúng”.
 Ví dụ: Số ngẫu nhiên sinh ra 55
 - Số bạn đoán: 45 -> Số bạn đoán nhỏ hơn
 - Số bạn đoán: 57 -> Số bạn đoán lớn hơn
