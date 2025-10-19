@@ -93,15 +93,31 @@ public class BTTH01_Bai4 {
         
         //Tìm giá trị nhỏ nhất trong mảng
         System.out.println(IntStream.of(a).min().getAsInt());
+        
+        //Tìm giá trị trung bình các giá trị trong mảng
+        System.out.println(IntStream.of(a).average().getAsDouble());
+        
+        //Tìm tổng các các giá trị là số nguyên tố trong mảng
+        System.out.println(IntStream.of(a).filter(x -> isNguyenTo(x)).sum());
+        
+        //Tìm số nguyên số nhỏ nhất trong mảng. Nếu không thấy số nguyên tố nào thì nó trả về 0
+        System.out.println(IntStream.of(a).filter(x -> isNguyenTo(x)).min().orElse(0));
+        
+        //Tìm số dương lớn nhất trong mảng. Nếu không tìm thấy số dương trong mảng thì trả về 0
+        System.out.println(IntStream.of(a).filter(x -> x > 0).max().orElse(0));
+        
+        //Tìm số âm nhỏ nhất trong mảng. Nếu không tìm thấy số âm trong mảng thì trả về 0
+        System.out.println(IntStream.of(a).filter(x -> x > 0).max().orElse(0));
     }
+    
     public static void main(String[] args) {
 //        int[] a = nhapMang(5);
 //        xuatMang(a);
-        //int[] a = new int{1, 2, 3, 4, 5};
+        int[] a = {4, 6, 8, 10};
         //System.out.printf("Tong cac so nguyen to trong mang la: %d\n", tongCacSoNguyenTo(a));
         //timSo(a);
         //System.out.printf("So nguyen to nho nhat trong mang la: %d\n", timSoNguyenToNhoNhat(a));
         
-        //StreamProgramming(a);
+        StreamProgramming(a);
     }
 }
