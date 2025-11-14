@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,31 +20,54 @@ public class DsHocVien {
         this.ds = new ArrayList<>();
     }
     
-    public void docTuFile(String tenFile) throws FileNotFoundException{
+    public void themHocVien(HocVien... a) {
+        this.ds.addAll(Arrays.asList(a));
+    }
+    
+    public void themHocVien(int soHocVien) {
+        for(int i = 0; i < soHocVien; i++){
+            try(CauHinh.SC){
+                System.out.printf("Nhap thong tin cho hoc vien thu %d\n", i+1);
+                System.out.print("Nhap ho ten: ");
+                String hoTen = CauHinh.SC.nextLine();
+                System.out.print("Nhap que quan: ");
+                String queQuan = CauHinh.SC.nextLine();
+                System.out.print("Nhap ngay sinh: ");
+                String ngaySinh = CauHinh.SC.nextLine();
+                
+                HocVien hv = new HocVien(hoTen, queQuan, ngaySinh);
+                this.ds.add(hv);
+            }
+        }
+    }
+    
+    public void themHocVien(String tenFile) throws FileNotFoundException{
         File file = new File(tenFile);
         if(!file.exists()){
             System.out.println("File khong ton tai " + tenFile);
             return;
         }
-        
-        this.ds.clear();
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         try(Scanner sc = new Scanner(file)){
-            while (sc.hasNextLine()) {
+            while (sc.hasNext()) {
                 String hoTen = sc.nextLine().trim();
                 String queQuan = sc.nextLine().trim();
-                String ngaySinhStr = sc.nextLine().trim();
-                LocalDate ngaySinh = LocalDate.parse(ngaySinhStr, fmt);
+                String ngaySinh = sc.nextLine().trim();
                 HocVien hv = new HocVien(hoTen, queQuan, ngaySinh);
-                ds.add(hv);
+                this.ds.add(hv);
             }
         }
-        System.out.println("Da doc " + this.ds.size() + " hoc vien tu file " + tenFile);
     }
     
-   
     public void hienThi() {
-        this.ds.forEach(hv -> System.out.println(hv.hienThi()));
+        System.out.println("---- HIEN THI ----");
+        this.ds.forEach(hocVien -> hocVien.hienThi());
+    }
+    
+    public void nhapDiem() {
+        this.ds.forEach(hocVien -> {
+            System.out.printf("--- Nhap diem cho %s ---\n", hocVien.getHoTen().toUpperCase());
+            hocVien.nhapDiem();
+        }); 
     }
     
     public HocVien timHocVienTheoMa(int maHV){
@@ -55,10 +79,10 @@ public class DsHocVien {
         return null;
     }
     
-    public void nhapDiemChoHocVien(int maHV, double diemMon1, double diemMon2, double diemMon3) {
-        HocVien hv = this.timHocVienTheoMa(maHV);
-        if(hv != null){
-            hv.setDiem(diemMon1, diemMon2, diemMon3);
-        }
-    }
+//    public void nhapDiemChoHocVien(int maHV, double diemMon1, double diemMon2, double diemMon3) {
+//        HocVien hv = this.timHocVienTheoMa(maHV);
+//        if(hv != null){
+//            hv.setDiem(diemMon1, diemMon2, diemMon3);
+//        }
+//    }
 }
