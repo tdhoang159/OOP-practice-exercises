@@ -113,6 +113,21 @@ public class BTTH01_Bai5 {
         return max;
     }
     
+    public static void timMinMaxCot(int[][] a){
+        for(int j = 0; j < a[0].length; j++){
+            int max = a[0][0];
+            int min = a[0][0];
+            for(int i = 0; i < a.length; i++){
+                if(a[i][j] >= max){
+                    max = a[i][j];
+                }
+                if(a[i][j] <= min){
+                    min = a[i][j];
+                }
+            }
+            System.out.printf("Min cua cot %d = %d\nMax cua cot %d = %d\n", j, min, j, max);
+        }
+    }
 
     public static void main(String[] args) {
         int m = 3; 
@@ -127,6 +142,7 @@ public class BTTH01_Bai5 {
 //        System.out.println(timGiaTriLonNhatCot(a, 0));
 //        System.out.println(timGiaTriNhoNhatCot(a, 0));
           tinhTongMaxMinDong(a);
-//          tinhTongCot2(a);
+          tinhTongCot2(a);
+          timMinMaxCot(a);
     }
 }
