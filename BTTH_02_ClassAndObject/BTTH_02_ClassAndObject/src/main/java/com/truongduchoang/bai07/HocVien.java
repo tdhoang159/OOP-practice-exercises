@@ -1,12 +1,14 @@
 package com.truongduchoang.bai07;
 
 import java.time.LocalDate;
+import java.util.stream.DoubleStream;
 
 /**
  *
  * @author Truong Duc Hoang
  */
 public class HocVien {
+
     private int maHV;
     private String hoTen;
     private LocalDate ngaySinh;
@@ -14,42 +16,74 @@ public class HocVien {
     private double[] diem;
     private static int dem = 0;
     private boolean isNhapDiem = false;
-    
+
     {
         ++dem;
         this.maHV = dem;
     }
-    
-    public HocVien(String hoTen, String queQuan, LocalDate ngaySinh){
+
+    public HocVien(String hoTen, String queQuan, LocalDate ngaySinh) {
         this.hoTen = hoTen;
         this.queQuan = queQuan;
         this.ngaySinh = ngaySinh;
     }
-    
-    public HocVien(String hoTen, String queQuan, String ngaySinh){
+
+    public HocVien(String hoTen, String queQuan, String ngaySinh) {
         this(hoTen, queQuan, LocalDate.parse(ngaySinh, CauHinh.FORMATTER));
     }
-    
-    public void hienThi(){
-        System.out.printf("Id: %d - Ho va ten: %s - Que quan: %s  - Ngay sinh: %s\n", 
+
+    public void hienThi() {
+        System.out.printf("Id: %d - Ho va ten: %s - Que quan: %s  - Ngay sinh: %s\n",
                 this.maHV, this.hoTen, this.queQuan, this.ngaySinh.format(CauHinh.FORMATTER));
-        
-        if(this.diem != null){
-            for(int i = 0; i < CauHinh.SO_MON; i++){
+
+        if (this.diem != null) {
+            for (int i = 0; i < CauHinh.SO_MON; i++) {
                 System.out.printf("Diem mon %d: %.1f\n", i + 1, this.diem[i]);
             }
+            System.out.printf("Diem trung binh mon: %.1f", this.tinhDiemTrungBinh());
             System.out.println("");
         }
     }
-    
+
     public void nhapDiem() {
         this.diem = new double[CauHinh.SO_MON];
-        for(int i = 0; i < CauHinh.SO_MON; i++){
+        for (int i = 0; i < CauHinh.SO_MON; i++) {
             System.out.printf("Nhap diem mon thu %d = ", i + 1);
             this.diem[i] = CauHinh.SC.nextDouble();
         }
     }
-    
+
+    public double tinhDiemTrungBinh() {
+        if (this.diem != null) {
+            double tongDiem = 0;
+            for (double d : this.diem) {
+                tongDiem += d;
+            }
+
+            return 1.0 * tongDiem / CauHinh.SO_MON;
+        }else{
+            return 0;
+        }
+//        if (this.diem != null) {
+//            return DoubleStream.of(this.diem).average().getAsDouble();
+//        }else{
+//            return 0;
+//        }    
+    }
+
+    public boolean isHocBong() {
+        if (this.diem != null) {
+            for (double d : this.diem) {
+                if (d < 5.0) {
+                    return false;
+                }
+            }
+            return this.tinhDiemTrungBinh() >= 8.0;
+        }else{
+            return false;
+        }       
+    }
+
     public int getMaHV() {
         return this.maHV;
     }

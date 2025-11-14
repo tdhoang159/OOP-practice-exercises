@@ -14,18 +14,22 @@ public class Main_Bai07 {
 
     public static void main(String[] args) throws FileNotFoundException {
         HocVien h1 = new HocVien("Truong Duc Hoang", "TP.HCM", "15/09/2004");
-//        HocVien h2 = new HocVien("Tran Que Moc", "Ben Tre", "24/04/2003");
+        HocVien h2 = new HocVien("Tran Que Moc", "Ben Tre", "24/04/2003");
         HocVien h3 = new HocVien("Ly Minh Nhat", "Quang Ngai", LocalDate.of(2005, Month.JUNE, 7));
         
         DsHocVien ds = new DsHocVien();
-        ds.themHocVien(1);
-        ds.themHocVien(h1, h3);
+//        ds.themHocVien(1);
+        ds.themHocVien(h1,h2, h3);
         //ds.themHocVien("src/main/resources/data.txt");
-        ds.hienThi();
- 
-//        System.out.println("----- NHAP DIEM ----");
-//        ds.nhapDiem();
 //        ds.hienThi();
+ 
+        System.out.println("----- NHAP DIEM ----");
+        ds.nhapDiem();
+//        ds.hienThi();
+//        System.out.println("----- DS HOC VIEN NHAN HOC BONG ----");
+//        ds.timKiem().forEach(hv -> hv.hienThi());
+        ds.sapXep1();
+        ds.hienThi();
         
         
         

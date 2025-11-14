@@ -2,12 +2,13 @@ package com.truongduchoang.bai07;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -70,19 +71,69 @@ public class DsHocVien {
         }); 
     }
     
-    public HocVien timHocVienTheoMa(int maHV){
-        for(HocVien hv : this.ds){
-            if(hv.getMaHV() == maHV){
-                return hv;
-            }
-        }
-        return null;
+    public HocVien timKiem(int maHV) {
+//        for(HocVien hv : this.ds){
+//            if(hv.getMaHV() == maHV){
+//                return hv;
+//            }
+//        }
+//        return null;
+
+        return this.ds.stream().filter(hv -> hv.getMaHV() == maHV).findFirst().get();
     }
     
-//    public void nhapDiemChoHocVien(int maHV, double diemMon1, double diemMon2, double diemMon3) {
-//        HocVien hv = this.timHocVienTheoMa(maHV);
-//        if(hv != null){
-//            hv.setDiem(diemMon1, diemMon2, diemMon3);
+    public List<HocVien> timKiem(String kw) {
+//        List<HocVien> result = new ArrayList<>();
+//        for(HocVien hv : this.ds){
+//            if(hv.getHoTen().trim().toLowerCase().contains(kw.trim().toLowerCase())){
+//                result.add(hv);
+//            }
 //        }
-//    }
+//        return result;
+
+        return this.ds.stream().filter(hv -> hv.getHoTen().trim().toLowerCase().contains(kw.trim().toLowerCase())).collect(Collectors.toList());
+    }
+    
+    public List<HocVien> timKiem() {
+//        List<HocVien> result = new ArrayList<>();
+//        for(HocVien hv : this.ds) {
+//            if(hv.isHocBong() == true){
+//                result.add(hv);
+//            }
+//        }
+//        return result;
+
+        return this.ds.stream().filter(hv -> hv.isHocBong() == true).collect(Collectors.toList());
+    }
+    
+    public void sapXep1() {
+        //Sắp xếp tăng dần
+        this.ds.sort((hv1, hv2) -> Double.compare(hv1.tinhDiemTrungBinh(), hv2.tinhDiemTrungBinh()));
+        
+        //Sắp xếp giảm dần
+        //this.ds.sort((hv1, hv2) -> -Double.compare(hv1.tinhDiemTrungBinh(), hv2.tinhDiemTrungBinh()));
+    }
+    
+    public void sapXep2() {
+        
+        //Sắp xếp tăng dần
+        this.ds.sort(Comparator.comparing(HocVien::tinhDiemTrungBinh));
+        
+        // Sắp xếp giảm dần
+        //this.ds.sort(Comparator.comparing(HocVien::tinhDiemTrungBinh, Collections.reverseOrder()));
+    }
+    
+    //Sắp xếp danh sách học viên tăng theo tháng sinh, nếu cùng tháng sinh thì giảm theo tên
+    public void sapXep3() {
+        this.ds.sort((hv1, hv2) -> {
+            int m1 = hv1.getNgaySinh().getMonthValue();
+            int m2 = hv2.getNgaySinh().getMonthValue();
+            
+            if(m1 == m2){
+                return -hv1.getHoTen().compareTo(hv2.getHoTen());
+            }
+            
+            return m1 - m2;
+        });
+    }
 }
