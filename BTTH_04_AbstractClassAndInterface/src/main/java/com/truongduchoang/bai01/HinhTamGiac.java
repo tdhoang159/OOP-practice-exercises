@@ -9,22 +9,23 @@ package com.truongduchoang.bai01;
  * @author admin
  */
 public class HinhTamGiac extends Hinh {
+
     private double canhA;
     private double canhB;
     private double canhC;
-    
-        @Override
+
+    @Override
     public double tinhDienTich() {
-        double p = this.tinhChuVi()*1.0/2;
-        return Math.sqrt(p*(p - this.canhA)*(p - this.canhB)*(p - this.canhC));
+        double p = this.tinhChuVi() * 1.0 / 2;
+        return Math.sqrt(p * (p - this.canhA) * (p - this.canhB) * (p - this.canhC));
     }
 
     @Override
     public double tinhChuVi() {
         return this.canhA + this.canhB + this.canhC;
     }
-    
-    public HinhTamGiac(String name, double a, double b, double c){
+
+    public HinhTamGiac(String name, double a, double b, double c) {
         super(name);
         this.canhA = a;
         this.canhB = b;
@@ -33,11 +34,20 @@ public class HinhTamGiac extends Hinh {
 
     @Override
     public boolean equals(Object obj) {
-        HinhTamGiac h = (HinhTamGiac)obj;
-        return super.equals(obj) && Double.compare(this.canhA, h.canhA)==0 && Double.compare(this.canhB, h.canhB)==0 && Double.compare(this.canhC, h.canhC)==0; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        if (obj instanceof HinhTamGiac h) {
+            return super.equals(obj) && Double.compare(this.canhA, h.canhA) == 0 && Double.compare(this.canhB, h.canhB) == 0 && Double.compare(this.canhC, h.canhC) == 0;
+        }
+        return false;
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.canhA) ^ (Double.doubleToLongBits(this.canhA) >>> 32));
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.canhB) ^ (Double.doubleToLongBits(this.canhB) >>> 32));
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.canhC) ^ (Double.doubleToLongBits(this.canhC) >>> 32));
+        return hash;
+    }
 
     public double getCanhA() {
         return canhA;
