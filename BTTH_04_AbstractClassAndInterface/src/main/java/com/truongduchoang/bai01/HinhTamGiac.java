@@ -31,6 +31,14 @@ public class HinhTamGiac extends Hinh {
         this.canhC = c;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        HinhTamGiac h = (HinhTamGiac)obj;
+        return super.equals(obj) && Double.compare(this.canhA, h.canhA)==0 && Double.compare(this.canhB, h.canhB)==0 && Double.compare(this.canhC, h.canhC)==0; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+    
+    
+
     public double getCanhA() {
         return canhA;
     }

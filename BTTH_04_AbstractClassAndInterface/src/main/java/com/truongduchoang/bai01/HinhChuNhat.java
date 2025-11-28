@@ -18,7 +18,7 @@ public class HinhChuNhat extends Hinh {
         this.chieuRong = chieuRong;
     }
     
-        @Override
+    @Override
     public double tinhDienTich() {
         return this.chieuDai * this.chieuRong;
     }
@@ -27,6 +27,21 @@ public class HinhChuNhat extends Hinh {
     public double tinhChuVi() {
         return (this.chieuDai + this.chieuRong)*2;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        HinhChuNhat h = (HinhChuNhat)obj;
+        return super.equals(obj) && Double.compare(this.chieuDai, h.chieuDai) == 0 && Double.compare(this.chieuRong, h.chieuRong) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+    
+    
+    
+    
 
     public double getChieuDai() {
         return chieuDai;

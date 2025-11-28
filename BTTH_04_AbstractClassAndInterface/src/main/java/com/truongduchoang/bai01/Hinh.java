@@ -33,5 +33,17 @@ public abstract class Hinh {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Hinh h = (Hinh)obj;
+        return this.getName().equals(h.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode(); 
+    }
+    
     
 }
