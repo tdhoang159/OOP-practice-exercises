@@ -25,7 +25,7 @@ public class Main_Bai01 {
        QLHinh ql = new QLHinh();
        ql.themHinh(h1, h2, h3, h4, h5, h6, h7, h8, h9, h10);
        ql.deleteHinhByName("HV");
-       ql.timHinh("HinhChuNhat");
+       
        ql.hienThi();
     }
     
