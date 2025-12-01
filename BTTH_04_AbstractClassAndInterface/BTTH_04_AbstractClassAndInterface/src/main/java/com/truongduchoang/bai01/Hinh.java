@@ -34,6 +34,7 @@ public abstract class Hinh {
         this.name = name;
     }
 
+    
     @Override
     public boolean equals(Object obj) {
         Hinh h = (Hinh)obj;

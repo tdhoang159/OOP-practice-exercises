@@ -26,9 +26,12 @@ public class Main_Bai01 {
         Hinh h8 = new HinhTamGiacDeu("TGD", 5);
         Hinh h9 = new HinhVuong("HV", 20);
         Hinh h10 = new HinhTamGiac("TG", 5, 6, 7);
+        Hinh h11 = new Ellipse("Ellipse", 10, 8);
+        Hinh h12 = new HinhTron("HT", 20);
 
         QLHinh ql = new QLHinh();
-        ql.themHinh(h1, h3, h4, h5, h6, h7, h8, h9, h10, h2);
+        ql.themHinh(h1, h3, h4, h5, h6, h7, h8, h9, h10, h2, h11, h12);
+        ql.hienThi();
         //ql.deleteHinhByName("HV");
 
 //        List<Hinh> result = new ArrayList<>();
@@ -53,8 +56,8 @@ public class Main_Bai01 {
 //          
 //          System.out.printf("Dien tich trung binh: %.1f", ql.tinhDienTichTrungBinh());
 
-            int result = ql.timHinh(new HinhChuNhat("HCN", 20, 12));
-            System.out.println(result);
+//            int result = ql.timHinh(new HinhChuNhat("HCN", 20, 12));
+//            System.out.println(result);
         
     }
 

@@ -13,7 +13,11 @@ public class HinhTamGiac extends Hinh {
     private double canhA;
     private double canhB;
     private double canhC;
+<<<<<<< HEAD:BTTH_04_AbstractClassAndInterface/BTTH_04_AbstractClassAndInterface/src/main/java/com/truongduchoang/bai01/HinhTamGiac.java
+    
+=======
 
+>>>>>>> 1430c9238757ee375d1aba8b938a10e89d6028bc:BTTH_04_AbstractClassAndInterface/src/main/java/com/truongduchoang/bai01/HinhTamGiac.java
     @Override
     public double tinhDienTich() {
         double p = this.tinhChuVi() * 1.0 / 2;
@@ -48,6 +52,18 @@ public class HinhTamGiac extends Hinh {
         hash = 29 * hash + (int) (Double.doubleToLongBits(this.canhC) ^ (Double.doubleToLongBits(this.canhC) >>> 32));
         return hash;
     }
+<<<<<<< HEAD:BTTH_04_AbstractClassAndInterface/BTTH_04_AbstractClassAndInterface/src/main/java/com/truongduchoang/bai01/HinhTamGiac.java
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.canhA) ^ (Double.doubleToLongBits(this.canhA) >>> 32));
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.canhB) ^ (Double.doubleToLongBits(this.canhB) >>> 32));
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.canhC) ^ (Double.doubleToLongBits(this.canhC) >>> 32));
+        return hash;
+    }
+=======
+>>>>>>> 1430c9238757ee375d1aba8b938a10e89d6028bc:BTTH_04_AbstractClassAndInterface/src/main/java/com/truongduchoang/bai01/HinhTamGiac.java
 
     public double getCanhA() {
         return canhA;
