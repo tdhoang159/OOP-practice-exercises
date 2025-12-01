@@ -13,11 +13,14 @@ public class HinhTamGiac extends Hinh {
     private double canhA;
     private double canhB;
     private double canhC;
-<<<<<<< HEAD:BTTH_04_AbstractClassAndInterface/BTTH_04_AbstractClassAndInterface/src/main/java/com/truongduchoang/bai01/HinhTamGiac.java
-    
-=======
 
->>>>>>> 1430c9238757ee375d1aba8b938a10e89d6028bc:BTTH_04_AbstractClassAndInterface/src/main/java/com/truongduchoang/bai01/HinhTamGiac.java
+    public HinhTamGiac(String name, double canhA, double canhB, double canhC) {
+        super(name);
+        this.canhA = canhA;
+        this.canhB = canhB;
+        this.canhC = canhC;
+    }
+
     @Override
     public double tinhDienTich() {
         double p = this.tinhChuVi() * 1.0 / 2;
@@ -27,13 +30,6 @@ public class HinhTamGiac extends Hinh {
     @Override
     public double tinhChuVi() {
         return this.canhA + this.canhB + this.canhC;
-    }
-
-    public HinhTamGiac(String name, double a, double b, double c) {
-        super(name);
-        this.canhA = a;
-        this.canhB = b;
-        this.canhC = c;
     }
 
     @Override
@@ -52,18 +48,6 @@ public class HinhTamGiac extends Hinh {
         hash = 29 * hash + (int) (Double.doubleToLongBits(this.canhC) ^ (Double.doubleToLongBits(this.canhC) >>> 32));
         return hash;
     }
-<<<<<<< HEAD:BTTH_04_AbstractClassAndInterface/BTTH_04_AbstractClassAndInterface/src/main/java/com/truongduchoang/bai01/HinhTamGiac.java
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.canhA) ^ (Double.doubleToLongBits(this.canhA) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.canhB) ^ (Double.doubleToLongBits(this.canhB) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.canhC) ^ (Double.doubleToLongBits(this.canhC) >>> 32));
-        return hash;
-    }
-=======
->>>>>>> 1430c9238757ee375d1aba8b938a10e89d6028bc:BTTH_04_AbstractClassAndInterface/src/main/java/com/truongduchoang/bai01/HinhTamGiac.java
 
     public double getCanhA() {
         return canhA;
