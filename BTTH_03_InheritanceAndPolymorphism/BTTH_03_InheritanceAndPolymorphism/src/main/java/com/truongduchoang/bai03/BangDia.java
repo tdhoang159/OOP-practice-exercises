@@ -7,8 +7,8 @@ package com.truongduchoang.bai03;
 public class BangDia extends SanPham{
     private double doDaiThoiGianPhat;
     
-    public BangDia(String tenSP, String nhaSanXuat, double giaBan, double doDaiThoiGianPhat){
-        super(tenSP, nhaSanXuat, giaBan);
+    public BangDia(String tenSP, String nhaSanXuat, double giaBan, String ngayPhatHanh, double doDaiThoiGianPhat){
+        super(tenSP, nhaSanXuat, giaBan, ngayPhatHanh);
         this.doDaiThoiGianPhat = doDaiThoiGianPhat;
     }
     

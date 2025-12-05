@@ -1,6 +1,8 @@
 package com.truongduchoang.bai03;
 
 import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -12,18 +14,20 @@ public abstract class SanPham {
     private String tenSP;
     private String nhaSanXuat;
     private double giaBan;
+    private LocalDate ngayPhatHanh;
     
-    public SanPham(String tenSP, String nhaSanXuat, double giaBan){
+    public SanPham(String tenSP, String nhaSanXuat, double giaBan, String ngayPhatHanh){
         this.tenSP = tenSP;
         this.nhaSanXuat = nhaSanXuat;
         this.giaBan = giaBan;
+        this.ngayPhatHanh = LocalDate.parse(ngayPhatHanh, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     @Override
     public String toString() {
         DecimalFormat df = new DecimalFormat("#,###");
         String newGia = df.format(this.giaBan).replace(",", ".");
-        return String.format("%d - %s - %s - %s", this.maSP, this.tenSP, this.nhaSanXuat, newGia);
+        return String.format("%d - %s - %s - %s - %s", this.maSP, this.tenSP, this.nhaSanXuat, newGia, this.getNgayPhatHanh().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }
     
     public static int getDem() {
@@ -65,4 +69,12 @@ public abstract class SanPham {
     public void setGiaBan(double giaBan) {
         this.giaBan = giaBan;
     } 
+
+    public LocalDate getNgayPhatHanh() {
+        return ngayPhatHanh;
+    }
+
+    public void setNgayPhatHanh(LocalDate ngayPhatHanh) {
+        this.ngayPhatHanh = ngayPhatHanh;
+    }
 }

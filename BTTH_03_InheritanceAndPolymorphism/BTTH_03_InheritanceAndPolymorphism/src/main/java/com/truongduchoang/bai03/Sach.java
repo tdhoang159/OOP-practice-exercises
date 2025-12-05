@@ -7,8 +7,8 @@ package com.truongduchoang.bai03;
 public class Sach extends SanPham{
     private int soTrang;
     
-    public Sach(String tenSP, String nhaSanXuat, double giaBan, int soTrang){
-        super(tenSP, nhaSanXuat, giaBan);
+    public Sach(String tenSP, String nhaSanXuat, double giaBan, String ngayPhatHanh, int soTrang){
+        super(tenSP, nhaSanXuat, giaBan, ngayPhatHanh);
         this.soTrang = soTrang;
     }
 
