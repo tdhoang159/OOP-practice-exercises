@@ -25,7 +25,7 @@ public abstract class TaiKhoan {
     }
 
     public void hienThi() {
-        System.out.printf("%s - %s - %.1f\n", this.soTK, this.tenTK, this.soTien);
+        System.out.printf("%s - %s - %.1f - So tien lai: %.1f/thang\n", this.soTK, this.tenTK, this.soTien, this.tinhTienLai());
     }
 
     public abstract boolean isDaoHan();

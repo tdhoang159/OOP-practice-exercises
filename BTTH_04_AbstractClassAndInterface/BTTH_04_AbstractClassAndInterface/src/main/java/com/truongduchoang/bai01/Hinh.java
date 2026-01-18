@@ -23,8 +23,6 @@ public abstract class Hinh {
     public String toString() {
         return String.format("%s - Dien tich = %.1f - Chu vi = %.1f \n", this.name, this.tinhDienTich(), this.tinhChuVi()); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
-    
-    
 
     public String getName() {
         return name;
@@ -34,7 +32,6 @@ public abstract class Hinh {
         this.name = name;
     }
 
-    
     @Override
     public boolean equals(Object obj) {
         Hinh h = (Hinh)obj;
@@ -45,6 +42,4 @@ public abstract class Hinh {
     public int hashCode() {
         return super.hashCode(); 
     }
-    
-    
 }

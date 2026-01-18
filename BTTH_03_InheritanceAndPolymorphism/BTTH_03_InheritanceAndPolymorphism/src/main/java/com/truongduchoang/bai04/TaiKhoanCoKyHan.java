@@ -43,6 +43,11 @@ public class TaiKhoanCoKyHan extends TaiKhoan {
                 this.kyHan, this.ngayDaoHan.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }
 
+    @Override
+    public double tinhTienLai() {
+        return (this.getSoTien()*(this.kyHan.getLaiSuat()/100))/12;
+    }
+
     public LocalDate getNgayDaoHan() {
         return ngayDaoHan;
     }
